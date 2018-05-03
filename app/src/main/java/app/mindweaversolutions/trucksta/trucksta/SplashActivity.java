@@ -1,13 +1,8 @@
 package app.mindweaversolutions.trucksta.trucksta;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.EditTextPreference;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
-
-import static android.media.MediaCodec.MetricsConstants.MODE;
 
 /**
  * Created by suryamurugan on 26/3/18.
@@ -23,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Intent LoginIntent = new Intent(SplashActivity.this,MainActivity.class);
+        Intent LoginIntent = new Intent(SplashActivity.this,LoginActivity.class);
         startActivity(LoginIntent);
         finish();
 
