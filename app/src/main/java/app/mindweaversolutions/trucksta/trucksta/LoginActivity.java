@@ -47,9 +47,9 @@ public class LoginActivity extends AppCompatActivity {
                     // doLogin(useremail,password);
                     if (useremail.equals("root") && password.equals("root")){
 
-                        Intent intent=new Intent(LoginActivity.this,MainActivity.class);
+                       /* Intent intent=new Intent(LoginActivity.this,MainActivity.class);
                         startActivity(intent);
-                        finish();
+                        finish();*/
                     }
 
                 }

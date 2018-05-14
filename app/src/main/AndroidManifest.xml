@@ -19,7 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />
 
         <meta-data
@@ -27,9 +26,8 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".RegisterActivity" />
-        <activity
-            android:name=".MainDashboard"
-            android:label="@string/title_activity_main_dashboard"></activity>
+        <activity android:name=".LanguageSelectionActivity" />
+        <activity android:name=".IntroductoryActivity"></activity>
     </application>
 
 </manifest>

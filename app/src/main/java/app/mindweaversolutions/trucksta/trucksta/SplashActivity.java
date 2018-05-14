@@ -18,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Intent LoginIntent = new Intent(SplashActivity.this,LoginActivity.class);
+        Intent LoginIntent = new Intent(SplashActivity.this,LanguageSelectionActivity.class);
         startActivity(LoginIntent);
         finish();
 

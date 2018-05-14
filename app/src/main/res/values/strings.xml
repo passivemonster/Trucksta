@@ -1,7 +1,18 @@
 <resources>
-    <string name="app_name">Trucksta</string>
-    <string name="title_activity_main_dashboard">MainDashboard</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name" translatable="false">Trucksta</string>
+    <string name="intro">Welcome To Trucksta</string>
+    <string name="signup">SIGNUP</string>
+    <string name="login">LOGIN</string>
+
+
+    <string name="lang">Language Preference</string>
+    <string-array name="languages">
+        <item>English(default)</item>
+        <item>हिंदी </item>
+        <item>kannada </item>
+
+
+        <item>தமிழ</item>
+        <item>മലയാളം</item>
+    </string-array>
 </resources>
