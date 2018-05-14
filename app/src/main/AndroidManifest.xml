@@ -25,7 +25,7 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".Registration.RegisterActivity" />
         <activity android:name=".LanguageSelectionActivity" />
         <activity android:name=".IntroductoryActivity"></activity>
     </application>

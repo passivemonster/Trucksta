@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import app.mindweaversolutions.trucksta.trucksta.Registration.RegisterActivity;
+
 public class LoginActivity extends AppCompatActivity {
     private Button login;
     private TextView reg;

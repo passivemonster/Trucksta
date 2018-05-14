@@ -15,4 +15,6 @@
         <item>தமிழ</item>
         <item>മലയാളം</item>
     </string-array>
+
+    <string name="next">Next</string>
 </resources>
