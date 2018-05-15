@@ -37,7 +37,7 @@ public class RegisterDocs extends AppCompatActivity  {
 
 
     ImageButton voterb,panb,aadharb,dlb;
-    int VOTER_REQUEST=123,PAN_REQUEST=2,AADHAR_REQUEST=3,DL_REQUEST=4;
+    int VOTER_REQUEST=123,PAN_REQUEST=4566,AADHAR_REQUEST=56453,DL_REQUEST=46456;
     private int GALLERY = 1, CAMERA = 2;
     private static final String IMAGE_DIRECTORY = "/mws";
 
@@ -66,15 +66,16 @@ public class RegisterDocs extends AppCompatActivity  {
     }
 
     public void choosePhotoFromGallary(int from) {
+
         Intent galleryIntent = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(galleryIntent, GALLERY);
+        startActivityForResult(galleryIntent, GALLERY+from);
 
     }
 
     private void takePhotoFromCamera(int from) {
         Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, CAMERA);
+        startActivityForResult(intent, CAMERA+from);
     }
 
     public String saveImage(Bitmap myBitmap) {
@@ -189,7 +190,16 @@ public class RegisterDocs extends AppCompatActivity  {
         if (resultCode == this.RESULT_CANCELED) {
             return;
         }
-        if (requestCode == GALLERY) {
+
+
+        switch (requestCode)
+        {
+           
+
+
+        }
+
+        if (requestCode == GALLERY+VOTER_REQUEST) {
             if (data != null) {
                 Uri contentURI = data.getData();
                 try {
@@ -206,7 +216,7 @@ public class RegisterDocs extends AppCompatActivity  {
                 }
             }
 
-        } else if (requestCode == CAMERA) {
+        } else if (requestCode == CAMERA+VOTER_REQUEST) {
             Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
             voterb.setImageBitmap(thumbnail);
 

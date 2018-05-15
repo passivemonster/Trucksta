@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "105298494246",
+    "firebase_url": "https://trucksta-445cd.firebaseio.com",
+    "project_id": "trucksta-445cd",
+    "storage_bucket": "trucksta-445cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105298494246:android:f9eb2c813269d2f9",
+        "android_client_info": {
+          "package_name": "app.mindweaversolutions.trucksta.trucksta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "105298494246-jl96b5dh7490arf6vt37pn7k8g8pdjfu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.mindweaversolutions.trucksta.trucksta",
+            "certificate_hash": "a24f04ed44c99bf037ce097a9279704dcf838019"
+          }
+        },
+        {
+          "client_id": "105298494246-999bcggkhaidj95f8e27n87l35dj16v0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA94smUbOITn7KBxgyquGtLipOa3pQ_PlQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "105298494246-999bcggkhaidj95f8e27n87l35dj16v0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
