@@ -17,4 +17,15 @@
     </string-array>
 
     <string name="next">Next</string>
+    <string name="UploadDocumnets">Upload Documents</string>
+    <string name="getverified">And get verified!</string>
+
+    // Strings for Document uploads //
+
+    <string name="aadhar">Aadhar</string>
+    <string name="voterid">Voter Id</string>
+    <string name="pan">Pan Card</string>
+    <string name="dl">DL</string>
+
+
 </resources>

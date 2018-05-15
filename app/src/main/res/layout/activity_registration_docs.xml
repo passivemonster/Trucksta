@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="25dp"
+    tools:context="app.mindweaversolutions.trucksta.trucksta.Registration.RegisterDocs">
+
+
+    <TextView
+        android:textColor="#171717"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/signika_light"
+        android:text="@string/UploadDocumnets"
+        android:textSize="30dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:textStyle="normal"
+        android:fontFamily="@font/signika_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="@string/getverified"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:textStyle="normal"
+        android:fontFamily="@font/signika_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"
+        android:text="WHAT SHOULD WE CALL YOU?"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/voterb"
+            style="@android:style/Widget.DeviceDefault.Light.ImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_camera_upload"
+            />
+        <EditText
+            android:layout_gravity="center_vertical"
+            android:inputType="number"
+            android:textSize="15dp"
+            android:fontFamily="@font/signika_light"
+            android:textStyle="normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/voterid"/>
+
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/panb"
+            style="@android:style/Widget.DeviceDefault.Light.ImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_camera_upload" />
+        <EditText
+            android:layout_gravity="center_vertical"
+            android:inputType="number"
+            android:textSize="15dp"
+            android:fontFamily="@font/signika_light"
+            android:textStyle="normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/pan"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/aadharb"
+            style="@android:style/Widget.DeviceDefault.Light.ImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_camera_upload" />
+        <EditText
+            android:layout_gravity="center_vertical"
+            android:inputType="number"
+            android:textSize="15dp"
+            android:fontFamily="@font/signika_light"
+            android:textStyle="normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/aadhar"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/dlb"
+            style="@android:style/Widget.DeviceDefault.Light.ImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_camera_upload" />
+        <EditText
+            android:layout_gravity="center_vertical"
+            android:inputType="number"
+            android:textSize="15dp"
+            android:fontFamily="@font/signika_light"
+            android:textStyle="normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/dl"/>
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/nexttopersonal"
+        android:layout_marginTop="10dp"
+        android:includeFontPadding="true"
+        android:layout_gravity="center"
+        android:background="@drawable/button_bg_stroke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        android:paddingLeft="6dp"
+        android:drawableEnd="@drawable/ic_action_name"
+        android:drawableTint="@color/colorPrimary"
+        android:textSize="20dp"
+        android:fontFamily="@font/signika_light"
+        android:textStyle="bold"/>
+
+
+
+
+</LinearLayout>

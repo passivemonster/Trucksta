@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="app.mindweaversolutions.trucksta.trucksta">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+
     <application
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_descriptor"
@@ -10,6 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCmNWsCh7_CM-LpvzD3hNAi9F_2vDXAWZ4" />
+
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
@@ -27,7 +33,10 @@
 
         <activity android:name=".Registration.RegisterActivity" />
         <activity android:name=".LanguageSelectionActivity" />
-        <activity android:name=".IntroductoryActivity"></activity>
+        <activity android:name=".IntroductoryActivity" />
+        <activity android:name=".Registration.RegisterDocs" />
+        <activity android:name=".Registration.RegisterPersonal" />
+        <activity android:name=".Registration.RegisterPayement"></activity>
     </application>
 
 </manifest>
