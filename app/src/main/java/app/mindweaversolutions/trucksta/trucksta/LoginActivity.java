@@ -10,13 +10,24 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import app.mindweaversolutions.trucksta.trucksta.Registration.RegisterActivity;
+import app.mindweaversolutions.trucksta.trucksta.model.LoginResp;
+import app.mindweaversolutions.trucksta.trucksta.model.RespObj;
+import app.mindweaversolutions.trucksta.trucksta.retrofit.ApiUtils;
+import app.mindweaversolutions.trucksta.trucksta.retrofit.UserService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     private Button login;
     private TextView reg;
     private EditText usernameedit;
     private EditText passwordedit;
+
+    UserService userService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +37,10 @@ public class LoginActivity extends AppCompatActivity {
         passwordedit = findViewById(R.id.password);
         login = findViewById(R.id.login);
         reg = findViewById(R.id.reg);
+
+        userService = ApiUtils.getUserService();
+
+
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
@@ -47,12 +62,26 @@ public class LoginActivity extends AppCompatActivity {
                 // validate form //
                 if(validateLogin(useremail,password)){
                     // doLogin(useremail,password);
-                    if (useremail.equals("root") && password.equals("root")){
+                   /////////
 
-                       /* Intent intent=new Intent(LoginActivity.this,MainActivity.class);
-                        startActivity(intent);
-                        finish();*/
-                    }
+
+
+                    Call<List<LoginResp>> call = userService.login(useremail,password);
+                    call.enqueue(new Callback<List<LoginResp>>() {
+                        @Override
+                        public void onResponse(Call<List<LoginResp>> call, Response<List<LoginResp>> response) {
+                            Toast.makeText(LoginActivity.this, ""+response.body().get(0).getName(), Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onFailure(Call<List<LoginResp>> call, Throwable t) {
+                            Toast.makeText(LoginActivity.this, "GET LUNCH  !! ", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    //////////////
+
+
 
                 }
             }

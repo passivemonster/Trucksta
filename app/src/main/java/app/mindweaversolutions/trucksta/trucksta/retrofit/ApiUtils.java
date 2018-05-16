@@ -2,7 +2,7 @@ package app.mindweaversolutions.trucksta.trucksta.retrofit;
 
 public class ApiUtils {
 
-        public static final String BASE_URL="";
+        public static final String BASE_URL="http://mindws.co.nf/";
 
         public static UserService getUserService(){
 
