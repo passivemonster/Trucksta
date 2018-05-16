@@ -7,11 +7,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+
+import com.google.gson.Gson;
 
 import app.mindweaversolutions.trucksta.trucksta.R;
+import app.mindweaversolutions.trucksta.trucksta.model.RegisterUserObject;
 
 public class RegisterPersonal extends AppCompatActivity {
 
+
+    String string;
+    Gson gson = new Gson();
+
+    EditText years;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,12 +28,27 @@ public class RegisterPersonal extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
+        Bundle extras = getIntent().getExtras();
+        string= extras.getString("myjson");
+        final RegisterUserObject registerUserObject = gson.fromJson(string, RegisterUserObject.class);
+
+years = findViewById(R.id.years);
+
+
         Button next = findViewById(R.id.nextbutton);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RegisterPersonal.this,RegisterPayement.class));
+
+                registerUserObject.setYears(years.getText().toString());
+
+                Gson gson1 = new Gson();
+                String myJson1 = gson1.toJson(registerUserObject);
+                Intent intent= new Intent(RegisterPersonal.this,RegisterPayement.class);
+                intent.putExtra("myjson", myJson1);
+                startActivity(intent);
+
             }
         });
 

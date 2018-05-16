@@ -16,12 +16,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
+import com.google.gson.Gson;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -30,10 +32,16 @@ import java.io.IOException;
 import java.util.Calendar;
 
 import app.mindweaversolutions.trucksta.trucksta.R;
+import app.mindweaversolutions.trucksta.trucksta.model.RegisterUserObject;
 
 import static android.media.MediaRecorder.VideoSource.CAMERA;
 
 public class RegisterDocs extends AppCompatActivity  {
+
+    String string;
+    Gson gson = new Gson();
+
+    EditText voteridno,pancardno,aadharno,dlno;
 
 
     ImageButton voterb,panb,aadharb,dlb;
@@ -116,6 +124,20 @@ public class RegisterDocs extends AppCompatActivity  {
         ActionBar actionBar= getSupportActionBar();
         actionBar.hide();
 
+
+
+        Bundle extras = getIntent().getExtras();
+        string= extras.getString("myjson");
+        final RegisterUserObject registerUserObject = gson.fromJson(string, RegisterUserObject.class);
+
+
+        voteridno = findViewById(R.id.voterno);
+        pancardno = findViewById(R.id.panno);
+        aadharno = findViewById(R.id.aadharno);
+        dlno = findViewById(R.id.dlno);
+
+
+
         final Button nexttopersonal = findViewById(R.id.nexttopersonal);
 
         voterb = findViewById(R.id.voterb);
@@ -158,8 +180,20 @@ public class RegisterDocs extends AppCompatActivity  {
         nexttopersonal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RegisterDocs.this,
-                        RegisterPersonal.class));
+
+                registerUserObject.setPid(pancardno.getText().toString());
+                registerUserObject.setAid(aadharno.getText().toString());
+                registerUserObject.setDid(dlno.getText().toString());
+                registerUserObject.setVid(voteridno.getText().toString());
+
+
+                Gson gson1 = new Gson();
+                String myJson1 = gson1.toJson(registerUserObject);
+
+                Intent intent= new Intent(RegisterDocs.this,RegisterPersonal.class);
+                intent.putExtra("myjson", myJson1);
+                startActivity(intent);
+
             }
         });
     }

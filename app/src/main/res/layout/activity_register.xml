@@ -43,6 +43,7 @@
             android:text="WHAT SHOULD WE CALL YOU?"/>
 
         <EditText
+            android:id="@+id/name"
             android:textSize="15dp"
             android:fontFamily="@font/signika_light"
             android:textStyle="normal"
@@ -60,6 +61,7 @@
             android:text="PHNO?"/>
 
         <EditText
+            android:id="@+id/phonenumber"
             android:inputType="phone"
             android:textSize="15dp"
             android:fontFamily="@font/signika_light"
@@ -78,10 +80,9 @@
             android:text="age?"/>
 
         <EditText
-
+            android:id="@+id/date"
             android:textSize="15dp"
             android:inputType="date"
-            android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -98,6 +99,7 @@
             android:text="Email id"/>
 
         <EditText
+            android:id="@+id/email"
             android:inputType="textEmailAddress"
             android:textSize="15dp"
             android:fontFamily="@font/signika_light"
@@ -128,8 +130,8 @@
                 />
 
             <EditText
-                android:layout_gravity="center_horizontal"
                 android:id="@+id/address"
+                android:layout_gravity="center_horizontal"
                 android:inputType="textEmailAddress"
                 android:textSize="15dp"
                 android:fontFamily="@font/signika_light"
