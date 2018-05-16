@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
         ActionBar actionBar =getSupportActionBar();
         actionBar.hide();
 
-        EditText ed=  findViewById(R.id.editText);
+      //  EditText ed=  findViewById(R.id.editText);
         name = findViewById(R.id.name);
         phonenumber = findViewById(R.id.phonenumber);
         date = findViewById(R.id.date);
@@ -55,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
 longlat = findViewById(R.id.map);
 
 
-        new DateInputMask(ed);
+        new DateInputMask(date);
 
         longlat.setOnClickListener(new View.OnClickListener() {
             @Override

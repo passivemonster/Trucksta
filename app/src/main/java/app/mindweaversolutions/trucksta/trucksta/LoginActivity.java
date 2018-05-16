@@ -70,8 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                     call.enqueue(new Callback<LoginResp>() {
                         @Override
                         public void onResponse(Call<LoginResp> call, Response<LoginResp> response) {
-                            Toast.makeText(LoginActivity.this, ""+response.body().getName()
-                                    +++++++++++++, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, ""+response.body().getName(), Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
