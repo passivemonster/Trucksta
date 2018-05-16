@@ -43,7 +43,6 @@ public class RegisterActivity extends AppCompatActivity {
         ActionBar actionBar =getSupportActionBar();
         actionBar.hide();
 
-      //  EditText ed=  findViewById(R.id.editText);
         name = findViewById(R.id.name);
         phonenumber = findViewById(R.id.phonenumber);
         date = findViewById(R.id.date);

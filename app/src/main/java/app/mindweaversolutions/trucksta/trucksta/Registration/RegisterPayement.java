@@ -34,7 +34,7 @@ public class RegisterPayement extends AppCompatActivity {
 
         accountifsc = findViewById(R.id.ifsc);
         accountname = findViewById(R.id.accountname);
-        accountnumber = findViewById(R.id.aadharno);
+        accountnumber = findViewById(R.id.accountno);
         next = findViewById(R.id.nextbutton);
 
         next.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +43,9 @@ public class RegisterPayement extends AppCompatActivity {
                 registerUserObject.setBname(accountname.getText().toString());
                 registerUserObject.setBifsc(accountifsc.getText().toString());
                 registerUserObject.setBno(accountnumber.getText().toString());
+
+
+
 
 
                 Toast.makeText(RegisterPayement.this, ""+registerUserObject.getAddress(), Toast.LENGTH_SHORT).show();
