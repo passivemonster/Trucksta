@@ -40,6 +40,7 @@
         android:text="What's your Account Name?"/>
 
     <EditText
+        android:id="@+id/accountname"
         android:textSize="15dp"
         android:fontFamily="@font/signika_light"
         android:textStyle="normal"
@@ -57,6 +58,7 @@
         android:text="What's your Account Number?"/>
 
     <EditText
+        android:id="@+id/accountno"
         android:inputType="number"
         android:textSize="15dp"
         android:fontFamily="@font/signika_light"
@@ -76,9 +78,9 @@
 
     <EditText
 
+android:id="@+id/ifsc"
         android:textSize="15dp"
         android:inputType="date"
-        android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"

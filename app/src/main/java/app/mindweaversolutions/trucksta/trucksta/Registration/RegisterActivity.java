@@ -17,10 +17,12 @@ import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
+import com.google.gson.Gson;
 
 import java.util.Calendar;
 
 import app.mindweaversolutions.trucksta.trucksta.R;
+import app.mindweaversolutions.trucksta.trucksta.model.RegisterUserObject;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -28,6 +30,9 @@ public class RegisterActivity extends AppCompatActivity {
     ImageButton longlat;
     EditText address;
     Button next;
+
+    RegisterUserObject registerUserObject;
+    EditText name,phonenumber,date,email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +44,11 @@ public class RegisterActivity extends AppCompatActivity {
         actionBar.hide();
 
         EditText ed=  findViewById(R.id.editText);
-    address = findViewById(R.id.address);
+        name = findViewById(R.id.name);
+        phonenumber = findViewById(R.id.phonenumber);
+        date = findViewById(R.id.date);
+        email = findViewById(R.id.email);
+        address = findViewById(R.id.address);
 
 
 
@@ -70,8 +79,29 @@ longlat = findViewById(R.id.map);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                registerUserObject = new RegisterUserObject();
+                registerUserObject.setName(name.getText().toString());
+                registerUserObject.setContact(phonenumber.getText().toString());
+                registerUserObject.setDob(date.getText().toString());
+                registerUserObject.setEmail(email.getText().toString());
+                registerUserObject.setAddress(address.getText().toString());
+
+
+                Gson gson = new Gson();
+                String myJson = gson.toJson(registerUserObject);
+
+
+
+
+
+
+
+
                Intent intent= new Intent(RegisterActivity.this,RegisterDocs.class);
-                startActivity(intent);
+                intent.putExtra("myjson", myJson);
+               startActivity(intent);
             }
         });
     }
