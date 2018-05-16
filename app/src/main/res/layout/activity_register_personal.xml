@@ -61,36 +61,48 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/imageButton"
+
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@mipmap/ic_launcher" />
+            android:background="#f2f2f2"
+            android:src="@drawable/ic_t1"
+            android:scaleType="centerCrop"/>
 
         <ImageButton
             android:id="@+id/imageButton4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@mipmap/ic_launcher" />
+            android:background="#f2f2f2"
+            android:src="@drawable/ic_t2"
+            android:scaleType="centerCrop"
+            />
 
         <ImageButton
             android:id="@+id/imageButton3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@mipmap/ic_launcher" />
+            android:background="#f2f2f2"
+            android:src="@drawable/ic_t3"
+            android:scaleType="centerCrop" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/imageButt3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@mipmap/ic_launcher" />
+            android:background="#f2f2f2"
+            android:src="@drawable/ic_t4"
+            android:scaleType="centerCrop"/>
+
+
     </LinearLayout>
 
 

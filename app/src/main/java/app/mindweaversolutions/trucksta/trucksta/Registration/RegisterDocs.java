@@ -192,12 +192,7 @@ public class RegisterDocs extends AppCompatActivity  {
         }
 
 
-        switch (requestCode)
-        {
-           
 
-
-        }
 
         if (requestCode == GALLERY+VOTER_REQUEST) {
             if (data != null) {
@@ -219,6 +214,75 @@ public class RegisterDocs extends AppCompatActivity  {
         } else if (requestCode == CAMERA+VOTER_REQUEST) {
             Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
             voterb.setImageBitmap(thumbnail);
+
+            saveImage(thumbnail);
+            Toast.makeText(RegisterDocs.this, "Image Saved!", Toast.LENGTH_SHORT).show();
+        } else if (requestCode == GALLERY+PAN_REQUEST) {
+            if (data != null) {
+                Uri contentURI = data.getData();
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
+                    String path = saveImage(bitmap);
+                    Toast.makeText(RegisterDocs.this, "Image Saved!", Toast.LENGTH_SHORT).show();
+                    panb.setImageBitmap(bitmap);
+                    panb.setScaleType(ImageView.ScaleType.CENTER);
+
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Toast.makeText(RegisterDocs.this, "Failed!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+        } else if (requestCode == CAMERA+PAN_REQUEST) {
+            Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+            panb.setImageBitmap(thumbnail);
+
+            saveImage(thumbnail);
+            Toast.makeText(RegisterDocs.this, "Image Saved!", Toast.LENGTH_SHORT).show();
+        } else if (requestCode == GALLERY+AADHAR_REQUEST) {
+            if (data != null) {
+                Uri contentURI = data.getData();
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
+                    String path = saveImage(bitmap);
+                    Toast.makeText(RegisterDocs.this, "Image Saved!", Toast.LENGTH_SHORT).show();
+                    aadharb.setImageBitmap(bitmap);
+                    aadharb.setScaleType(ImageView.ScaleType.CENTER);
+
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Toast.makeText(RegisterDocs.this, "Failed!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+        } else if (requestCode == CAMERA+AADHAR_REQUEST) {
+            Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+            aadharb.setImageBitmap(thumbnail);
+
+            saveImage(thumbnail);
+            Toast.makeText(RegisterDocs.this, "Image Saved!", Toast.LENGTH_SHORT).show();
+        } else if (requestCode == GALLERY+DL_REQUEST) {
+            if (data != null) {
+                Uri contentURI = data.getData();
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
+                    String path = saveImage(bitmap);
+                    Toast.makeText(RegisterDocs.this, "Image Saved!", Toast.LENGTH_SHORT).show();
+                    dlb.setImageBitmap(bitmap);
+                    dlb.setScaleType(ImageView.ScaleType.CENTER);
+
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Toast.makeText(RegisterDocs.this, "Failed!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+        } else if (requestCode == CAMERA+DL_REQUEST) {
+            Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+            dlb.setImageBitmap(thumbnail);
 
             saveImage(thumbnail);
             Toast.makeText(RegisterDocs.this, "Image Saved!", Toast.LENGTH_SHORT).show();
