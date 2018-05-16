@@ -13,6 +13,12 @@ import com.google.gson.Gson;
 
 import app.mindweaversolutions.trucksta.trucksta.R;
 import app.mindweaversolutions.trucksta.trucksta.model.RegisterUserObject;
+import app.mindweaversolutions.trucksta.trucksta.model.RespObj;
+import app.mindweaversolutions.trucksta.trucksta.retrofit.ApiUtils;
+import app.mindweaversolutions.trucksta.trucksta.retrofit.UserService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RegisterPayement extends AppCompatActivity {
 
@@ -20,6 +26,8 @@ public class RegisterPayement extends AppCompatActivity {
     Gson gson = new Gson();
 
     Button next;
+
+    UserService userService;
 
     EditText accountname,accountifsc,accountnumber;
 
@@ -31,6 +39,8 @@ public class RegisterPayement extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         string= extras.getString("myjson");
         final RegisterUserObject registerUserObject = gson.fromJson(string, RegisterUserObject.class);
+
+        userService = ApiUtils.getUserService();
 
         accountifsc = findViewById(R.id.ifsc);
         accountname = findViewById(R.id.accountname);
@@ -44,6 +54,36 @@ public class RegisterPayement extends AppCompatActivity {
                 registerUserObject.setBifsc(accountifsc.getText().toString());
                 registerUserObject.setBno(accountnumber.getText().toString());
 
+
+                Call<RespObj> call = userService.register(registerUserObject.getName(),
+                        registerUserObject.getContact(),
+                        registerUserObject.getDob(),
+                        registerUserObject.getEmail(),
+                        registerUserObject.getAddress(),
+                        registerUserObject.getVid(),
+                        "",
+                        registerUserObject.getPid(),"",
+                        registerUserObject.getAid(),"",
+                        registerUserObject.getDid(),"",
+                        registerUserObject.getYears(),
+                        "","",registerUserObject.getBname(),
+                        registerUserObject.getBno(),
+                        registerUserObject.getBifsc());
+
+
+                call.enqueue(new Callback<RespObj>() {
+                    @Override
+                    public void onResponse(Call<RespObj> call, Response<RespObj> response) {
+                        Toast.makeText(RegisterPayement.this, ""+response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<RespObj> call, Throwable t) {
+
+                        Toast.makeText(RegisterPayement.this, "Network Fail", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
 
 
 

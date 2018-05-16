@@ -19,7 +19,7 @@ public interface UserService {
 
     @FormUrlEncoded
     @POST("mws_register.php")
-    Call<Response> register(@Field("name")String name,
+    Call<RespObj> register(@Field("name")String name,
                          @Field("contact")String contact,
                             @Field("dob")String dob,
                             @Field("email")String email,
