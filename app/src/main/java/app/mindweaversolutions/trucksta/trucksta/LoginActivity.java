@@ -66,15 +66,15 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-                    Call<List<LoginResp>> call = userService.login(useremail,password);
-                    call.enqueue(new Callback<List<LoginResp>>() {
+                    Call<LoginResp> call = userService.login(useremail,password);
+                    call.enqueue(new Callback<LoginResp>() {
                         @Override
-                        public void onResponse(Call<List<LoginResp>> call, Response<List<LoginResp>> response) {
-                            Toast.makeText(LoginActivity.this, ""+response.body().get(0).getName(), Toast.LENGTH_SHORT).show();
+                        public void onResponse(Call<LoginResp> call, Response<LoginResp> response) {
+                            Toast.makeText(LoginActivity.this, ""+response.body().getName(), Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
-                        public void onFailure(Call<List<LoginResp>> call, Throwable t) {
+                        public void onFailure(Call<LoginResp> call, Throwable t) {
                             Toast.makeText(LoginActivity.this, "GET LUNCH  !! ", Toast.LENGTH_SHORT).show();
                         }
                     });

@@ -14,7 +14,7 @@ public interface UserService {
 
     @FormUrlEncoded
     @POST("mws_login.php")
-    Call<List<LoginResp>> login(@Field("email")String a,
+    Call<LoginResp> login(@Field("email")String a,
                                @Field("password")String b);
 
     @FormUrlEncoded
