@@ -108,7 +108,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/cabin"
-                android:text="-------------------------------------"
+                android:text="----------------------------------"
                 android:textSize="20dp"
                 android:textColor="#171717"
                 />
@@ -125,6 +125,18 @@
                 android:textColor="#171717"
                 android:textSize="18dp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/signika_light"
+                android:text="Reset Password"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="#171717"/>
 
 
         </LinearLayout>

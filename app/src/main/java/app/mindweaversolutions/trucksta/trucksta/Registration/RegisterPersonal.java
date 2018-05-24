@@ -26,7 +26,7 @@ public class RegisterPersonal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_personal);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+        actionBar.hide() ;
 
         Bundle extras = getIntent().getExtras();
         string= extras.getString("myjson");

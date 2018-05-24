@@ -1,6 +1,8 @@
 package app.mindweaversolutions.trucksta.trucksta;
 
 import android.content.Intent;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +26,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
     private Button login;
     private TextView reg;
+    private TextView reset ;
     private EditText usernameedit;
     private EditText passwordedit;
 
@@ -37,13 +40,14 @@ public class LoginActivity extends AppCompatActivity {
         passwordedit = findViewById(R.id.password);
         login = findViewById(R.id.login);
         reg = findViewById(R.id.reg);
+        reset = findViewById(R.id.reset) ;
 
         userService = ApiUtils.getUserService();
 
 
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+//        actionBar.hide();
 
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +90,25 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(LoginActivity.this, "hehe!!", Toast.LENGTH_SHORT).show();
+              showAlertDialog() ;
+
+            }
+        });
+
+
+    }
+
+//dialog reset
+    private void showAlertDialog() {
+        FragmentManager fm = getSupportFragmentManager() ;
+        reset change = new reset() ;
+                change.show(fm,"alert");
+
     }
 
 
