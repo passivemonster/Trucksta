@@ -29,7 +29,6 @@ public class LoginActivity extends AppCompatActivity {
     private TextView reset ;
     private EditText usernameedit;
     private EditText passwordedit;
-
     UserService userService;
 
     @Override
@@ -46,9 +45,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-        ActionBar actionBar = getSupportActionBar();
-//        actionBar.hide();
-
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-   // hello..
+         // hello..
         // Login Button Listner //
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,9 +63,6 @@ public class LoginActivity extends AppCompatActivity {
                 if(validateLogin(useremail,password)){
                     // doLogin(useremail,password);
                    /////////
-
-
-
                     Call<LoginResp> call = userService.login(useremail,password);
                     call.enqueue(new Callback<LoginResp>() {
                         @Override
@@ -103,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-//dialog reset
+    //dialog reset
     private void showAlertDialog() {
         FragmentManager fm = getSupportFragmentManager() ;
         reset change = new reset() ;
@@ -115,7 +108,6 @@ public class LoginActivity extends AppCompatActivity {
 
     // VALIDATION for Login //
     private  boolean validateLogin(String useremail, String password){
-
         if(useremail ==null || useremail.trim().length() ==0 ){
             Toast.makeText(this, "useremail is required", Toast.LENGTH_SHORT).show();
             return false;

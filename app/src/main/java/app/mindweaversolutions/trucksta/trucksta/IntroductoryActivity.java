@@ -10,34 +10,42 @@ import android.widget.Button;
 import app.mindweaversolutions.trucksta.trucksta.Registration.RegisterActivity;
 
 public class IntroductoryActivity extends AppCompatActivity {
+
     ActionBar actionBar;
+    Button signUpButton;
+    Button loginUpButton;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_introductory);
+
+        // Binding Views
         actionBar = getSupportActionBar();
         actionBar.hide();
+        signUpButton = findViewById(R.id.sign);
+        loginUpButton = findViewById(R.id.login);
 
-        Button signUpButton = findViewById(R.id.sign);
-        Button loginUpButton=findViewById(R.id.login);
-
+        // Listener for both the buttons
         loginUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent2=new Intent(v.getContext(),LoginActivity.class);
-                startActivity(intent2);
-
+                // Starting login Intent
+                startActivity(new Intent(v.getContext(),LoginActivity.class));
             }
         });
-
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(IntroductoryActivity.this,RegisterActivity.class);
-                startActivity(intent);
+                //Starting Register Intent
+                startActivity(new Intent(IntroductoryActivity.this,RegisterActivity.class));
             }
         });
-
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
 }

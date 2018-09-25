@@ -17,13 +17,14 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Intent LoginIntent = new Intent(SplashActivity.this,LanguageSelectionActivity.class);
-        startActivity(LoginIntent);
+        // Intent to Start LanguageSelectionActivity
+        startActivity(new Intent(SplashActivity.this,LanguageSelectionActivity.class));
         finish();
+    }
+}
 
-        //    Toast.makeText(this, "idk"+userLocalStore.getLoggedInUser(), Toast.LENGTH_SHORT).show();
-        //}
+//    Toast.makeText(this, "idk"+userLocalStore.getLoggedInUser(), Toast.LENGTH_SHORT).show();
+//}
 /*
         if(savedInstanceState.get("username").equals("")){
 
@@ -53,6 +54,3 @@ UserLocalStore userLocalStore = new UserLocalStore(getApplicationContext());
             SplashActivity.this.startActivity(intent);
             finish();
         }*/
-
-    }
-}
