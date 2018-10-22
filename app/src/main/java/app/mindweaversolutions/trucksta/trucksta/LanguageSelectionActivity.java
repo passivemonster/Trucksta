@@ -11,6 +11,8 @@ import android.content.res.Resources;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
@@ -24,9 +26,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.util.Calendar;
+import java.net.NetworkInterface;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -34,33 +35,28 @@ import app.mindweaversolutions.trucksta.trucksta.db.AppDatabase;
 import app.mindweaversolutions.trucksta.trucksta.db.locationData;
 
 public class LanguageSelectionActivity extends AppCompatActivity {
-
     TextView locationdata;
     ActionBar actionbar;
     Button english;
     LocationManager locationManager;
     Location lastKnownLocation;
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_selection);
         actionbar = getSupportActionBar();
         actionbar.hide();
-
-
-
-        locationData locatiodata = new locationData();
+        WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        WifiInfo wInfo = wifiManager.getConnectionInfo();
+        String macAddress = wInfo.getMacAddress();
+        Toast.makeText(this, ""+getMacAddr(), Toast.LENGTH_SHORT).show();
+        final locationData locatiodata = new locationData();
         locatiodata.setLatitude("324234");
         locatiodata.setLongitude("dfdsfsdfsd");
-
-
         List<locationData> locationData = AppDatabase.getAppDatabase(getApplicationContext()).locationDao().getAll();
         for (locationData locatiodata1 : locationData){
-
-
-            Toast.makeText(this, "\n"+locatiodata1.getUid(), Toast.LENGTH_SHORT).show();
+          //  Toast.makeText(this, "\n"+locatiodata1.getUid(), Toast.LENGTH_SHORT).show();
         }
 
 
@@ -95,6 +91,7 @@ public class LanguageSelectionActivity extends AppCompatActivity {
             @SuppressLint("NewApi")
             public void onLocationChanged(Location location) {
                 // Called when a new location is found by the network location provider.
+
                 Log.e("locationservice",location.getLatitude()+"\n"+location.getLongitude()+""+location.getBearingAccuracyDegrees());
                 Log.e("locationservice",""+isBetterLocation(location,lastKnownLocation));
                 locationdata.setText(""+location.getLongitude()+"\n"+location.getLatitude());
@@ -104,7 +101,9 @@ public class LanguageSelectionActivity extends AppCompatActivity {
             public void onProviderEnabled(String provider) {
                 Toast.makeText(LanguageSelectionActivity.this, ""+provider, Toast.LENGTH_SHORT).show();
             }
-            public void onProviderDisabled(String provider) {}
+            public void onProviderDisabled(String provider) {
+
+            }
         };
 
         // Register the listener with the Location Manager to receive location updates
@@ -201,13 +200,11 @@ public class LanguageSelectionActivity extends AppCompatActivity {
             // A new location is always better than no location
             return true;
         }
-
         // Check whether the new location fix is newer or older
         long timeDelta = location.getTime() - currentBestLocation.getTime();
         boolean isSignificantlyNewer = timeDelta > TWO_MINUTES;
         boolean isSignificantlyOlder = timeDelta < -TWO_MINUTES;
         boolean isNewer = timeDelta > 0;
-
         // If it's been more than two minutes since the current location, use the new location
         // because the user has likely moved
         if (isSignificantlyNewer) {
@@ -216,17 +213,14 @@ public class LanguageSelectionActivity extends AppCompatActivity {
         } else if (isSignificantlyOlder) {
             return false;
         }
-
         // Check whether the new location fix is more or less accurate
         int accuracyDelta = (int) (location.getAccuracy() - currentBestLocation.getAccuracy());
         boolean isLessAccurate = accuracyDelta > 0;
         boolean isMoreAccurate = accuracyDelta < 0;
         boolean isSignificantlyLessAccurate = accuracyDelta > 200;
-
         // Check if the old and new location are from the same provider
         boolean isFromSameProvider = isSameProvider(location.getProvider(),
                 currentBestLocation.getProvider());
-
         // Determine location quality using a combination of timeliness and accuracy
         if (isMoreAccurate) {
             return true;
@@ -237,7 +231,6 @@ public class LanguageSelectionActivity extends AppCompatActivity {
         }
         return false;
     }
-
     /** Checks whether two providers are the same */
     private boolean isSameProvider(String provider1, String provider2) {
         if (provider1 == null) {
@@ -245,5 +238,29 @@ public class LanguageSelectionActivity extends AppCompatActivity {
         }
         return provider1.equals(provider2);
     }
+    public static String getMacAddr() {
+        try {
+            List<NetworkInterface> all = Collections.list(NetworkInterface.getNetworkInterfaces());
+            for (NetworkInterface nif : all) {
+                if (!nif.getName().equalsIgnoreCase("wlan0")) continue;
 
+                byte[] macBytes = nif.getHardwareAddress();
+                if (macBytes == null) {
+                    return "";
+                }
+
+                StringBuilder res1 = new StringBuilder();
+                for (byte b : macBytes) {
+                    res1.append(String.format("%02X:",b));
+                }
+
+                if (res1.length() > 0) {
+                    res1.deleteCharAt(res1.length() - 1);
+                }
+                return res1.toString();
+            }
+        } catch (Exception ex) {
+        }
+        return "02:00:00:00:00:00";
+    }
 }
