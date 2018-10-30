@@ -11,6 +11,7 @@ import android.content.res.Resources;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.support.v4.app.ActivityCompat;
@@ -61,6 +62,14 @@ public class LanguageSelectionActivity extends AppCompatActivity {
 
 
 
+        Uri gmmIntentUri = Uri.parse("google.navigation:q=Atria Institute of technology+Hebbal,+Bengaluru+India&mode=d");
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        mapIntent.setPackage("com.google.android.apps.maps");
+
+      //  startService(new Intent(MainActivity.this, FloatingViewService.class));
+        startActivity(mapIntent);
+
+
 
 
         // Binding Views
@@ -84,7 +93,7 @@ public class LanguageSelectionActivity extends AppCompatActivity {
         // Or use LocationManager.GPS_PROVIDER
          lastKnownLocation = locationManager.getLastKnownLocation(locationProvider2);
 
-        locationdata.setText(""+lastKnownLocation.getLatitude()+lastKnownLocation.getLongitude());
+//        locationdata.setText(""+lastKnownLocation.getLatitude()+lastKnownLocation.getLongitude());
 
         // This is a LocationListener that responds to location updates
         LocationListener locationListener = new LocationListener() {
